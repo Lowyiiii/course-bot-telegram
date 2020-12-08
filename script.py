@@ -239,11 +239,12 @@ def start(update,context):
     username = user['username']
     text = """
     کاربر گرامی {} به ربات دوره بصیرت مجازی خوش آمدید:\n
-     دوره بصیرت مجازی به مدت ۷ روز برگزار خواهد شد، لذا تا پایان دوره، از این ربات و کانال مصباح ۴۰۵  خارج نشوید.
+     دوره بصیرت مجازی به مدت ۳ روز برگزار خواهد شد، لذا تا پایان دوره، از این ربات و کانال مصباح ۴۰۵  خارج نشوید.
     \n
 
 🔸 دوره بصیرت مجازی ویژه  مادران بوده و برابر گروه بندی زیر اجرا خواهد شد:
-
+سبک زندگی و تربیت فرزند : ساعت ۱۲ 
+جنگ نرم و تحلیل سیاسی : ساعت  ۱۷
 
 ☜ برای شرکت در دوره بصیرت لطفاً شروع را انتخاب نمایید: 👇
     """.format(username)
@@ -385,7 +386,7 @@ def low(update,context):
 
         if(mamads =="0"):
 
-            context.bot.send_video(chat_id=update.message.chat_id,video="https://video-17.dalfak.com/31/31227-577761959812_360.mp4",timeout=10000,caption=mamad,reply_markup=reply_markup)
+            context.bot.send_video(chat_id=update.message.chat_id,video=linked,timeout=10000,caption=mamad,reply_markup=reply_markup)
             wive_quest(update,context)
         elif(mamads == "1"):
             context.bot.send_message(chat_id= update.message.chat_id,text="شما به این سوال پاسخ داده اید و مجاز به انتخاب دوباره نیستید")
@@ -857,7 +858,7 @@ def low(update,context):
         reply_markup = InlineKeyboardMarkup(keyboard)
         if(mamads =="0"):
 
-            context.bot.send_video(chat_id=update.message.chat_id,video="https://video-17.dalfak.com/31/31227-577761959812_360.mp4",timeout=10000,caption=mamad,reply_markup=reply_markup)
+            context.bot.send_video(chat_id=update.message.chat_id,video=linked,timeout=10000,caption=mamad,reply_markup=reply_markup)
             father_section(update,context)
         elif(mamads == "1"):
             context.bot.send_message(chat_id= update.message.chat_id,text="شما به این سوال پاسخ داده اید و مجاز به انتخاب دوباره نیستید")
@@ -2400,10 +2401,7 @@ def button(update,context):
             c.execute(sql_query,data)
             conn.commit()
             print("its query answer {}".format(query.answer()) )
-            # query.edit_message_text(text="hi")
             context.bot.answer_callback_query(callback_query_id=query.id, text='شما گزینه درست را انتخاب کرده اید - امتیاز سوال برای شما منظور شد', show_alert=True)
-            # context.bot.answer_callback_query(callback_query_id=query.id, text='you chose cat', show_alert=True)
-            # context.bot.editMessageReplyMarkup(chat_id= query.message.chat_id, message_id= query.message.message_id,reply_markup=None)
             context.bot.edit_message_reply_markup(chat_id=query.message.chat_id,message_id=query.message.message_id,reply_markup=None)
             
         else:
@@ -3493,10 +3491,7 @@ def button(update,context):
             c.execute(sql_query,data)
             conn.commit()
             print("its query answer {}".format(query.answer()) )
-            # query.edit_message_text(text="hi")
             context.bot.answer_callback_query(callback_query_id=query.id, text='شما گزینه درست را انتخاب کرده اید - امتیاز سوال برای شما منظور شد', show_alert=True)
-            # context.bot.answer_callback_query(callback_query_id=query.id, text='you chose cat', show_alert=True)
-            # context.bot.editMessageReplyMarkup(chat_id= query.message.chat_id, message_id= query.message.message_id,reply_markup=None)
             context.bot.edit_message_reply_markup(chat_id=query.message.chat_id,message_id=query.message.message_id,reply_markup=None)
         else:
             sql_query = '''UPDATE Mother_Members SET d7 = ? WHERE chat_id = ?'''
